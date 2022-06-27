@@ -43,10 +43,10 @@ def sign(datau, session, cert, cert_value, hashalgo, attrs=True, signed_value=No
                 'type': cms.CMSAttributeType('message_digest'),
                 'values': (signed_value,),
             }),
-            cms.CMSAttribute({
-                'type': cms.CMSAttributeType('signing_time'),
-                'values': (cms.Time({'utc_time': core.UTCTime(signed_time)}),)
-            }),
+#            cms.CMSAttribute({
+#                'type': cms.CMSAttributeType('signing_time'),
+#                'values': (cms.Time({'utc_time': core.UTCTime(signed_time)}),)
+#            }),
             cms.CMSAttribute({
                 'type': cms.CMSAttributeType('1.2.840.113549.1.9.16.2.47'),
                 'values': (tsp.SigningCertificateV2({
