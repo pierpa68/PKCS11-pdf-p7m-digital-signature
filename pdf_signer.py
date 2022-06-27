@@ -1,5 +1,6 @@
 # *-* coding: utf-8 *-*
 import hashlib
+import pytz
 from datetime import datetime
 from asn1crypto import cms, algos, core, tsp
 
@@ -12,7 +13,7 @@ from my_logger import MyLogger
 def sign(datau, session, cert, cert_value, hashalgo, attrs=True, signed_value=None):
     if signed_value is None:
         signed_value = getattr(hashlib, hashalgo)(datau).digest()
-    signed_time = datetime.now()
+    signed_time = datetime.now(pytz.utc)
 
     x509 = Certificate.load(cert_value)
     certificates = []
